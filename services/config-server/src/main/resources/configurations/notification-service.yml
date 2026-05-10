@@ -1,0 +1,29 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://laye:password@localhost:27017/customer
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: paymentGroup,orderGroup
+      key-deserializer: org.apache.kafka.common.serialization.StringSerializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.trusted.packages: '*'
+        spring.json.type.mapping: paymentConfirmation:tech.laye.ecommerce.notification.PaymentNotificationRequest,orderConfirmation:tech.laye.ecommerce.kafka.OrderConfirmation
+      auto-offset-reset: earliest
+  mail:
+    username: ablaye
+    host: localhost
+    password: password
+    port: 1025
+    properties:
+      mail:
+        smtp:
+          trust: "*"
+        auth: true
+        starttls:
+          enabled: true
+        connectiontimeout: 5000
+        timeout: 3000
+        writetimeout: 5000
