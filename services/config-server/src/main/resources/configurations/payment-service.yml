@@ -5,7 +5,7 @@ spring:
     password: password
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   kafka:
@@ -15,6 +15,5 @@ spring:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       properties:
         spring.json.type.mapping: paymentConfirmation:tech.laye.ecommerce.notification.PaymentNotificationRequest;
-
 server:
-  port: 8060 
+  port: 8060

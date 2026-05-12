@@ -6,11 +6,11 @@ spring:
     consumer:
       bootstrap-servers: localhost:9092
       group-id: paymentGroup,orderGroup
-      key-deserializer: org.apache.kafka.common.serialization.StringSerializer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonSerializer
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
         spring.json.trusted.packages: '*'
-        spring.json.type.mapping: paymentConfirmation:tech.laye.ecommerce.notification.PaymentNotificationRequest,orderConfirmation:tech.laye.ecommerce.kafka.OrderConfirmation
+        spring.json.type.mapping: paymentConfirmation:tech.laye.ecommerce.kafka.payment.PaymentConfirmation,orderConfirmation:tech.laye.ecommerce.kafka.order.OrderConfirmation
       auto-offset-reset: earliest
   mail:
     username: ablaye

@@ -1,7 +1,7 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://laye:password@localhost:27017/customer
+      uri: mongodb://laye:password@localhost:27017/customer?authSource=admin
 
 server:
   port: 8090
